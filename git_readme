@@ -1,0 +1,8 @@
+If you don’t want to use the GitHub CLI, you can use git directly:
+
+Ensure Git is installed:
+git --version
+If not installed, download and install Git from git-scm.com.
+
+Clone the repository:
+git clone https://github.com/harinadh8n/react-application.git
