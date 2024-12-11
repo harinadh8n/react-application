@@ -6,3 +6,23 @@ If not installed, download and install Git from git-scm.com.
 
 Clone the repository:
 git clone https://github.com/harinadh8n/react-application.git
+
+
+
+create react app
+
+npx create-react-app app-name
+
+if any dependency install manually
+npm install --save-dev ajv
+
+
+Remove node module and package-lock.json
+Remove-Item -Recurse -Force .\node_modules
+Remove-Item -Force .\package-lock.json
+
+
+Remove-Item -Recurse -Force .\node_modules; Remove-Item -Force .\package-lock.json
+
+After successfully removing these items, you can proceed with reinstalling your dependencies by running:
+npm install
