@@ -1,0 +1,37 @@
+/* User card container styling */
+.user-card-container {
+    display: flex; /* Flexbox for horizontal layout */
+    align-items: center; /* Center items vertically */
+    background-color: #ffffff; /* White background for cards */
+    border-radius: 8px; /* Rounded corners for cards */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for cards */
+    padding: 15px; /* Padding inside each card */
+    margin-bottom: 15px; /* Space between cards */
+}
+
+/* Avatar image styling */
+.avatar {
+    width: 60px; /* Fixed size for avatar */
+    height: 60px; /* Fixed size for avatar */
+    border-radius: 50%; /* Circular avatar shape */
+    margin-right: 15px; /* Space between avatar and text */
+}
+
+/* User name styling */
+.user-name {
+    font-size: 1.2em; /* Larger font size for name */
+    font-weight: bold; /* Bold font weight for name */
+    color: #333; /* Dark text color for name */
+}
+
+/* User profession styling */
+.user-profession {
+    font-size: 1em; /* Standard font size for profession */
+    color: #666; /* Grey color for profession text */
+}
+
+/* User age styling */
+.user-age {
+    font-size: 0.9em; /* Smaller font size for age */
+    color: #999; /* Lighter grey color for age text */
+}
