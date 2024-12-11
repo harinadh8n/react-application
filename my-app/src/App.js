@@ -1,7 +1,8 @@
-import UserProfile from './components/userprofile/index';
+import UserProfile from './components/userprofile';
 import './App.css';
 
-const App = () => {
+
+function App(){
   const userDetails = [
     {
       name: 'Harinadh',
@@ -48,6 +49,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;
