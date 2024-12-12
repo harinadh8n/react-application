@@ -1,9 +1,22 @@
-import UserProfile from './components/userprofile';
 import './App.css';
+import Counter from './components/classcomponents/countercomponent'
 
 
 function App(){
-  const userDetails = [
+  return(
+    <Counter/>
+  );
+};
+
+export default App;
+
+/*
+________________________________
+Components and Props(Properties)
+--------------------------------
+import UserProfile from './components/userprofile';
+
+const userDetails = [
     {
       name: 'Harinadh',
       age: 24,
@@ -48,6 +61,19 @@ function App(){
       </ul>
     </div>
   );
-};
+*/
 
-export default App;
+/*
+________________________________
+Class level components and props
+--------------------------------
+import Welcome from './components/classcomponents/practicecomponents/index';
+import WelcomeWithProps from './components/classcomponents/practicecomponents/indexwithprops';
+
+ return (
+    <dive>
+      <Welcome/>
+      <WelcomeWithProps name="hari" profession="SDE"/>
+    </dive>
+  );
+*/
