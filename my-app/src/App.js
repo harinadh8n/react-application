@@ -1,12 +1,21 @@
 import './App.css';
-import Counter from './components/classcomponents/countercomponent'
+import { Component } from 'react';
+import Welocme from './components/welocomcomponents/index'
 
+class App extends Component{
+  state = {isLogged : true};
 
-function App(){
-  return(
-    <Counter/>
-  );
-};
+  render(){
+    const {isLogged} = this.state;
+    let authButton = isLogged?(<button type='button'>Logout</button>):(<button type='button'>LogIn</button>)
+    return (
+      <div>
+        <Welocme greeting="Hi"/>
+        {authButton}
+      </div>
+    )
+  }
+}
 
 export default App;
 
@@ -76,4 +85,77 @@ import WelcomeWithProps from './components/classcomponents/practicecomponents/in
       <WelcomeWithProps name="hari" profession="SDE"/>
     </dive>
   );
-*/
+
+
+
+------------------------
+COunter App
+__________________________
+import Counter from './components/classcomponents/countercomponent'
+
+
+ return(
+    <Counter/>
+  );
+
+______________________________
+Conditional and default props
+------------------------------------
+STEP 1: usinf functional if eles
+
+  state = {isLogged : false};
+
+  ButtonSelect = () => {
+    const {isLogged} = this.state;
+    if(isLogged){
+      return (<button type='button'>Logout</button>)
+    }
+    return (<button type='button'>LogIn</button>)
+  }
+  render(){
+    return (
+      <div>
+        <Welocme greeting="Hi"/>
+        {this.ButtonSelect()}
+      </div>
+    )
+  }
+_____________________________________________________
+STEP 2: Using conditional operator
+
+class App extends Component{
+  state = {isLogged : true};
+
+  render(){
+    const {isLogged} = this.state;
+    return (
+      <div>
+        <Welocme greeting="Hi"/>
+        {isLogged?(<button type='button'>Logout</button>):(<button type='button'>LogIn</button>)}
+      </div>
+    )
+  }
+
+}
+________________________________________________
+STEP 3: Variable usage
+
+class App extends Component{
+  state = {isLogged : true};
+
+  render(){
+    const {isLogged} = this.state;
+    let authButton = isLogged?(<button type='button'>Logout</button>):(<button type='button'>LogIn</button>)
+    return (
+      <div>
+        <Welocme greeting="Hi"/>
+        {authButton}
+      </div>
+    )
+  }
+}
+
+
+  */
+
+
