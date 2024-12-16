@@ -1,19 +1,91 @@
 import './App.css';
 import { Component } from 'react';
-import Welocme from './components/welocomcomponents/index'
+//import Weloc0me from './components/welocomcomponents/index';
+import UserProfile from './components/userprofile';
+
+
+
+const initialUserDetails = [
+  {
+    UNO : 1,
+    name: 'Harinadh',
+    age: 24,
+    profession: 'SDE at Infosys',
+    profileImage: 'https://randomuser.me/api/portraits/men/1.jpg'
+  },
+  {
+    UNO : 2,
+    name: 'Anjali',
+    age: 28,
+    profession: 'Product Manager at Google',
+    profileImage: 'https://randomuser.me/api/portraits/women/1.jpg'
+  },
+  {
+    UNO : 3,
+    name: 'Rajesh',
+    age: 30,
+    profession: 'UX Designer at Adobe',
+    profileImage: 'https://randomuser.me/api/portraits/men/2.jpg'
+  },
+  {
+    UNO : 4,
+    name: 'Sneha',
+    age: 26,
+    profession: 'Data Scientist at Amazon',
+    profileImage: 'https://randomuser.me/api/portraits/women/2.jpg'
+  },
+  {
+    UNO : 5,
+    name: 'Vikram',
+    age: 32,
+    profession: 'DevOps Engineer at Microsoft',
+    profileImage: 'https://randomuser.me/api/portraits/men/3.jpg'
+  }
+];
 
 class App extends Component{
-  state = {isLogged : true};
+  state ={
+    searchInput : "",
+    userList : initialUserDetails,
+  }
 
-  render(){
-    const {isLogged} = this.state;
-    let authButton = isLogged?(<button type='button'>Logout</button>):(<button type='button'>LogIn</button>)
+  onSearchInputChange =(event) =>{
+    console.log(event.target.value);
+    this.setState({
+      searchInput : event.target.value.toLowerCase(),
+    });
+  }
+  OnDeleteUser = UNO => {
+    console.log(`on delete triggered for the ${UNO}`);
+    const {userList} = this.state;
+    const filterData = userList.filter(user => user.UNO !== UNO);
+    this.setState({
+      userList:filterData
+    });
+  }
+  render(){  
+    const {searchInput ,userList} = this.state;
+    var filteredUserList = [];
+    if(searchInput === ""){
+      filteredUserList = userList;
+    }else{
+      filteredUserList = userList.filter(user =>
+        user.name.toLowerCase().includes(searchInput)
+      );
+    }
     return (
-      <div>
-        <Welocme greeting="Hi"/>
-        {authButton}
+      <div className='list-container'>
+        <h1 className='title'>Users List</h1>
+        <input type='search' className='search-user' onChange={this.onSearchInputChange}/>
+        <ul>
+          {filteredUserList.map((user, index) => (
+            <li key={index}>
+              <UserProfile userDetails={user} key={user.UNO} onDelete={this.OnDeleteUser}/>
+            </li>
+          ))}
+        </ul>
       </div>
-    )
+    );
   }
 }
 
