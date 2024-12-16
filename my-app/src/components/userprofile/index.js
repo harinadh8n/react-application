@@ -1,4 +1,5 @@
 import './index.css'
+//import '../../App.css'
 
 const UserProfile = (props) => {
     const {userDetails, onDelete} = props;

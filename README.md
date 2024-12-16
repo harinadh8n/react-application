@@ -117,3 +117,12 @@ rm -rf node_modules package-lock.json
 npm install
 
 
+
+
+Step-by-Step Explanation to import the files in react js
+../../../ navigates:
+
+../ → Moves from src to react-app.
+../ → Moves from react-app to nested-folder-level-3.
+../ → Moves from nested-folder-level-3 to nested-folder-level-2.
+After reaching the parent directory of back-folder, you append back-folder/myFile.
