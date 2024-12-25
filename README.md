@@ -126,3 +126,32 @@ Step-by-Step Explanation to import the files in react js
 ../ → Moves from react-app to nested-folder-level-3.
 ../ → Moves from nested-folder-level-3 to nested-folder-level-2.
 After reaching the parent directory of back-folder, you append back-folder/myFile.
+
+
+//Common mistakes
+Event listeners should be writtened in the Arrow Function format
+
+Set State
+________
+
+we cant update the state directly we need to use setState() to change the value
+calling setState() in render() function because it become infinite loop as it changing the value of state whenever values change in state render() get clled automatically.
+we dont have to call any finctions with () we just need to mention this.functionsname with no paranthesis.
+
+
+State:
+________________
+The state is a JS object in whcih we store the components data that changes over time
+when state triggers the page get render()
+
+
+
+
+
+
+
+
+
+
+
+

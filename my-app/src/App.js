@@ -2,7 +2,7 @@ import './App.css';
 import { Component } from 'react';
 //import Weloc0me from './components/welocomcomponents/index';
 import UserProfile from './components/userprofile';
-
+import TabItems from './components/extras';
 
 
 const initialUserDetails = [
@@ -43,10 +43,53 @@ const initialUserDetails = [
   }
 ];
 
+const tabsList =[
+  {
+    tabID : 1,
+    name:'STATIC'
+  },
+  {
+    tabID : 1,
+    name:'PROPER'
+  },
+  {
+    tabID : 1,
+    name:'DYNAMIC'
+  }
+]
+
+const projectsList = [
+  {
+    projID:1,
+    category:'STATIC',
+    name:'MyWeb'
+  },
+  {
+    projID:1,
+    category:'PROPER',
+    name:'MyWeb'
+  },
+  {
+    projID:1,
+    category:'DYNAMIC',
+    name:'MyWeb'
+  }
+]
+
 class App extends Component{
+  
   state ={
     searchInput : "",
     userList : initialUserDetails,
+    activeTabID : tabsList[0].tabID
+  }
+
+  getFilteredProjects = () =>{
+    const {activeTabID} = this.state;
+    const filteredProjects = projectsList.filter(
+      eachProject => eachProject.category === activeTabID
+    )
+    return filteredProjects;
   }
 
   onSearchInputChange =(event) =>{
@@ -55,6 +98,7 @@ class App extends Component{
       searchInput : event.target.value.toLowerCase(),
     });
   }
+
   OnDeleteUser = UNO => {
     console.log(`on delete triggered for the ${UNO}`);
     const {userList} = this.state;
@@ -63,8 +107,17 @@ class App extends Component{
       userList:filterData
     });
   }
+
+  updateActiveTabID =(tabId) =>{
+    const {activeTabID} = this.state;// no need to call it.
+    this.setState({
+      activeTabID:tabId
+    });
+  }
+
   render(){  
     const {searchInput ,userList} = this.state;
+    const filteredProj = this.getFilteredProjects();
     var filteredUserList = [];
     if(searchInput === ""){
       filteredUserList = userList;
@@ -84,6 +137,29 @@ class App extends Component{
             </li>
           ))}
         </ul>
+        <div>
+          {
+            tabsList.map(
+              tabItems =>(
+                <TabItems
+                tablDetails ={tablDetails}
+                updateActiveTab = {this.updateActiveTabID}
+                />
+              )
+            )
+          }
+          <div className='tab-details'>
+             {
+              filteredProj.map(
+                proj =>(
+                  <TabDetails
+                    details = {proj}
+                  />
+                )
+              )
+             }
+          </div>
+        </div>
       </div>
     );
   }

@@ -11,7 +11,6 @@ class Welocme extends Component{
 Welocme.defaultProps ={
     name : 'Hari',
     greeting : 'Hello'
-
 }
 
 export default Welocme
